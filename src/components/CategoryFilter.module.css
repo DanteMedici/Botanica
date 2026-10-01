@@ -5,18 +5,23 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  width: 100%;
 }
 
 .pill {
   background-color: var(--color-surface);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border);
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1rem;
+  min-height: 38px;
   border-radius: var(--radius-pill);
   font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 
 .pill:hover {
@@ -35,4 +40,25 @@
 .active:hover {
   background-color: #274b37;
   color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
 }

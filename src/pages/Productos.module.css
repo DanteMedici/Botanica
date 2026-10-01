@@ -140,3 +140,22 @@
   background-color: #ffffff;
   border-color: var(--color-botanical);
 }
+
+@media (max-width: 640px) {
+  .container {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .emptyState {
+    padding: 2.5rem 1.2rem;
+  }
+}
