@@ -1,4 +1,5 @@
 import { Plus, Minus, Trash2 } from 'lucide-react';
+import ImageWithFallback from './ImageWithFallback';
 import styles from './CartItem.module.css';
 
 export default function CartItem({ item, onSumar, onRestar, onEliminar }) {
@@ -9,12 +10,14 @@ export default function CartItem({ item, onSumar, onRestar, onEliminar }) {
     <article className={styles.item}>
       <div className={styles.productCol}>
         {imagen && (
-          <img
-            src={imagen}
-            alt={nombre}
-            className={styles.thumbnail}
-            loading="lazy"
-          />
+          <div className={styles.thumbnailWrapper}>
+            <ImageWithFallback
+              src={imagen}
+              alt={nombre}
+              aspectRatio="1/1"
+              fallbackText="Ítem"
+            />
+          </div>
         )}
         <div className={styles.details}>
           <h4 className={styles.title}>{nombre}</h4>

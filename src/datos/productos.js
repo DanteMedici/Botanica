@@ -46,7 +46,7 @@ const PRODUCTOS = [
     precio: 3200,
     destacado: false,
     icono: "Sparkles",
-    imagen: "https://images.unsplash.com/photo-1599818816773-77d079973815?auto=format&fit=crop&w=600&q=80",
+    imagen: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80",
     descripcion: "Protección transpirable reforzada en palma y nudillos."
   },
   {

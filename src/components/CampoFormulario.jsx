@@ -7,16 +7,29 @@ export default function CampoFormulario({
   tipo = 'text',
   valor,
   onChange,
+  onBlur,
   error,
   placeholder,
   esTextarea = false,
   filas = 4,
+  contador = null,
 }) {
   return (
     <div className={`${styles.group} ${error ? styles.hasError : ''}`}>
-      <label htmlFor={id} className={styles.label}>
-        {label}
-      </label>
+      <div className={styles.labelWrapper}>
+        <label htmlFor={id} className={styles.label}>
+          {label}
+        </label>
+        {contador && (
+          <span
+            className={`${styles.charCounter} ${
+              contador.actual >= contador.minimo ? styles.charValid : ''
+            }`}
+          >
+            {contador.actual} / {contador.minimo} mín.
+          </span>
+        )}
+      </div>
 
       {esTextarea ? (
         <textarea
@@ -24,6 +37,7 @@ export default function CampoFormulario({
           name={id}
           value={valor}
           onChange={onChange}
+          onBlur={onBlur}
           placeholder={placeholder}
           rows={filas}
           className={`${styles.control} ${styles.textarea}`}
@@ -35,6 +49,7 @@ export default function CampoFormulario({
           type={tipo}
           value={valor}
           onChange={onChange}
+          onBlur={onBlur}
           placeholder={placeholder}
           className={styles.control}
         />

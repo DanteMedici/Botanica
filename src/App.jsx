@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PRODUCTOS from './datos/productos';
 import Layout from './components/Layout';
+import Toast from './components/Toast';
 import Home from './pages/Home';
 import Productos from './pages/Productos';
 import Carrito from './pages/Carrito';
@@ -11,6 +12,9 @@ export default function App() {
   // Estado centralizado del carrito (Lifting State Up)
   // Vive en App para ser compartido entre NavBar, Home, Productos y Carrito
   const [carrito, setCarrito] = useState([]);
+
+  // Estado para el Toast de feedback visual al agregar productos
+  const [toast, setToast] = useState({ visible: false, productoNombre: '' });
 
   // Función para agregar un producto al carrito
   // Si ya existe, incrementa su cantidad sin duplicar la fila ni mutar el array
@@ -26,6 +30,9 @@ export default function App() {
       }
       return [...prevCarrito, { ...producto, cantidad: 1 }];
     });
+
+    // Disparamos la micro-interacción Toast
+    setToast({ visible: true, productoNombre: producto.nombre });
   };
 
   // Función para restar una unidad
@@ -108,6 +115,12 @@ export default function App() {
           />
         </Route>
       </Routes>
+
+      {/* Notificación Toast flotante de feedback */}
+      <Toast
+        toast={toast}
+        onCerrar={() => setToast({ visible: false, productoNombre: '' })}
+      />
     </BrowserRouter>
   );
 }

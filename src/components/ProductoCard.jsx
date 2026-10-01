@@ -1,5 +1,6 @@
 import { Plus } from 'lucide-react';
 import Badge from './Badge';
+import ImageWithFallback from './ImageWithFallback';
 import styles from './ProductoCard.module.css';
 
 export default function ProductoCard({ producto, onAgregar }) {
@@ -8,11 +9,10 @@ export default function ProductoCard({ producto, onAgregar }) {
   return (
     <article className={styles.card}>
       <div className={styles.imageContainer}>
-        <img
+        <ImageWithFallback
           src={imagen}
           alt={nombre}
-          className={styles.image}
-          loading="lazy"
+          fallbackText={nombre}
         />
         <div className={styles.badgesOverlay}>
           {destacado ? (
@@ -46,7 +46,7 @@ export default function ProductoCard({ producto, onAgregar }) {
             type="button"
             className={styles.btnAdd}
             onClick={() => onAgregar(producto)}
-            aria-label={`Agregar ${nombre} al carrito`}
+            aria-label={`Agregar ${nombre} a la bolsa de compras`}
           >
             <Plus size={15} strokeWidth={2.5} />
             <span>Agregar</span>

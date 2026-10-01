@@ -20,12 +20,12 @@
   min-width: 220px;
 }
 
-.thumbnail {
+.thumbnailWrapper {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-sm);
-  object-fit: cover;
-  background-color: var(--color-surface-subtle);
+  overflow: hidden;
+  flex-shrink: 0;
   border: 1px solid var(--color-border-subtle);
 }
 

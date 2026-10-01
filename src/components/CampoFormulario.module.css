@@ -4,11 +4,28 @@
   gap: 0.4rem;
 }
 
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .label {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-primary);
   letter-spacing: -0.01em;
+}
+
+.charCounter {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.charValid {
+  color: var(--color-botanical);
+  font-weight: 600;
 }
 
 .control {

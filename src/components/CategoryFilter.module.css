@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pill {
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pill:hover {
+  border-color: var(--color-botanical);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-subtle);
+}
+
+.active {
+  background-color: var(--color-botanical);
+  color: #ffffff;
+  border-color: var(--color-botanical);
+  font-weight: 600;
+}
+
+.active:hover {
+  background-color: #274b37;
+  color: #ffffff;
+}

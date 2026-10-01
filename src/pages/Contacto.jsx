@@ -36,7 +36,37 @@ export default function Contacto() {
     }
   };
 
-  // Validaciones estrictas en React
+  // Validación individual por campo para onBlur
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    const valor = formData[name].trim();
+
+    if (name === 'nombre') {
+      if (!valor) {
+        setErrores((prev) => ({ ...prev, nombre: 'El nombre es obligatorio.' }));
+      } else if (valor.length < 3) {
+        setErrores((prev) => ({ ...prev, nombre: 'El nombre debe contener al menos 3 caracteres.' }));
+      }
+    } else if (name === 'email') {
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!valor) {
+        setErrores((prev) => ({ ...prev, email: 'El correo electrónico es obligatorio.' }));
+      } else if (!regexEmail.test(valor)) {
+        setErrores((prev) => ({ ...prev, email: 'El correo debe tener un formato válido (ej: usuario@dominio.com).' }));
+      }
+    } else if (name === 'mensaje') {
+      if (!valor) {
+        setErrores((prev) => ({ ...prev, mensaje: 'El mensaje es obligatorio.' }));
+      } else if (valor.length < 10) {
+        setErrores((prev) => ({
+          ...prev,
+          mensaje: `El mensaje debe contener al menos 10 caracteres (actuales: ${valor.length}).`,
+        }));
+      }
+    }
+  };
+
+  // Validaciones globales estrictas en React
   const validarFormulario = () => {
     const nuevosErrores = {};
 
@@ -160,6 +190,7 @@ export default function Contacto() {
               label="Nombre y Apellido *"
               valor={formData.nombre}
               onChange={handleChange}
+              onBlur={handleBlur}
               error={errores.nombre}
               placeholder="Ej: Clara Benítez"
             />
@@ -170,6 +201,7 @@ export default function Contacto() {
               tipo="email"
               valor={formData.email}
               onChange={handleChange}
+              onBlur={handleBlur}
               error={errores.email}
               placeholder="Ej: clara@ejemplo.com"
             />
@@ -179,10 +211,15 @@ export default function Contacto() {
               label="Mensaje o Consulta (mínimo 10 caracteres) *"
               valor={formData.mensaje}
               onChange={handleChange}
+              onBlur={handleBlur}
               error={errores.mensaje}
               placeholder="Detallá tu consulta o especie de interés..."
               esTextarea={true}
               filas={5}
+              contador={{
+                actual: formData.mensaje.trim().length,
+                minimo: 10,
+              }}
             />
 
             <button type="submit" className={styles.btnSubmit}>
