@@ -1,0 +1,141 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 1.2rem;
+  transition: background-color var(--transition-fast);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.productCol {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 220px;
+}
+
+.thumbnail {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.unitPrice {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.quantityControl {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem;
+}
+
+.btnQty {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-xs);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btnQty:hover {
+  background-color: #ffffff;
+  color: var(--color-accent);
+}
+
+.qtyValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
+.subtotalCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100px;
+}
+
+.subtotalLabel {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.subtotalAmount {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.btnRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btnRemove:hover {
+  color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+@media (max-width: 640px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .productCol {
+    width: 100%;
+  }
+  
+  .quantityControl {
+    align-self: flex-start;
+  }
+  
+  .subtotalCol {
+    align-items: flex-start;
+  }
+}

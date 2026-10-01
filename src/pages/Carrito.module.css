@@ -1,0 +1,231 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.cartList {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.btnClearCart {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.btnClearCart:hover {
+  color: var(--color-error);
+}
+
+/* Panel resumen */
+.summaryPanel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+  position: sticky;
+  top: 90px;
+}
+
+.summaryTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.freeShipping {
+  color: var(--color-botanical);
+  font-weight: 600;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0.2rem 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.totalAmount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-botanical);
+  letter-spacing: -0.02em;
+}
+
+.btnCheckout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-botanical);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: 0.5rem;
+}
+
+.btnCheckout:hover {
+  background-color: #264a37;
+  transform: translateY(-1px);
+}
+
+.continueShopping {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.continueShopping:hover {
+  color: var(--color-text-primary);
+}
+
+/* Carrito vacío */
+.emptyCart {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 5rem 2rem;
+  text-align: center;
+  max-width: 580px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.emptyIcon {
+  color: var(--color-text-muted);
+  stroke-width: 1.3;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.emptyText {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+.btnExplore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-botanical);
+  color: #ffffff;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  margin-top: 0.5rem;
+}
+
+.btnExplore:hover {
+  background-color: #264a37;
+}
+
+/* Modal Content */
+.modalSuccessContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.successIcon {
+  color: var(--color-botanical);
+}
+
+.orderTotalHighlight {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-botanical);
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .summaryPanel {
+    position: static;
+  }
+}

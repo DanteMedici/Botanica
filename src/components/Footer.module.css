@@ -1,0 +1,101 @@
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.brandCol {
+  max-width: 380px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-botanical);
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.brandIcon {
+  color: var(--color-botanical);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.linksCol {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.colGroup h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.colGroup ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colGroup a {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  transition: color var(--transition-fast);
+}
+
+.colGroup a:hover {
+  color: var(--color-accent);
+}
+
+.bottomSection {
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copy {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.tagline {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
