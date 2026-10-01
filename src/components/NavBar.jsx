@@ -6,15 +6,15 @@ export default function NavBar({ totalCantidad }) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <NavLink to="/" className={styles.brand}>
-          <Sprout className={styles.brandIcon} size={26} />
+        <NavLink to="/" className={styles.brand} aria-label="Botánica Atelier - Ir a página de inicio">
+          <Sprout className={styles.brandIcon} size={26} aria-hidden="true" />
           <div className={styles.brandText}>
             <span className={styles.brandName}>Botánica</span>
             <span className={styles.brandSub}>Atelier Floral</span>
           </div>
         </NavLink>
 
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Navegación principal">
           <NavLink
             to="/"
             end
@@ -37,10 +37,13 @@ export default function NavBar({ totalCantidad }) {
             className={({ isActive }) =>
               `${styles.navLink} ${styles.cartLink} ${isActive ? styles.active : ''}`
             }
+            aria-label={`Bolsa de compras, ${totalCantidad} artículo${totalCantidad === 1 ? '' : 's'}`}
           >
-            <ShoppingBag size={17} className={styles.cartIcon} />
+            <ShoppingBag size={17} className={styles.cartIcon} aria-hidden="true" />
             <span>Carrito</span>
-            <span className={styles.cartBadge}>{totalCantidad}</span>
+            <span className={styles.cartBadge} aria-hidden="true">
+              {totalCantidad}
+            </span>
           </NavLink>
           <NavLink
             to="/contacto"

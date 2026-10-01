@@ -14,6 +14,8 @@ export default function CampoFormulario({
   filas = 4,
   contador = null,
 }) {
+  const errorId = `${id}-error`;
+
   return (
     <div className={`${styles.group} ${error ? styles.hasError : ''}`}>
       <div className={styles.labelWrapper}>
@@ -25,6 +27,7 @@ export default function CampoFormulario({
             className={`${styles.charCounter} ${
               contador.actual >= contador.minimo ? styles.charValid : ''
             }`}
+            aria-live="polite"
           >
             {contador.actual} / {contador.minimo} mín.
           </span>
@@ -41,6 +44,8 @@ export default function CampoFormulario({
           placeholder={placeholder}
           rows={filas}
           className={`${styles.control} ${styles.textarea}`}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : undefined}
         />
       ) : (
         <input
@@ -52,11 +57,13 @@ export default function CampoFormulario({
           onBlur={onBlur}
           placeholder={placeholder}
           className={styles.control}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? errorId : undefined}
         />
       )}
 
       {error && (
-        <div className={styles.errorMessage} role="alert">
+        <div id={errorId} className={styles.errorMessage} role="alert">
           <AlertCircle size={14} className={styles.errorIcon} />
           <span>{error}</span>
         </div>

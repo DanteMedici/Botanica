@@ -20,7 +20,7 @@ export default function CartItem({ item, onSumar, onRestar, onEliminar }) {
           </div>
         )}
         <div className={styles.details}>
-          <h4 className={styles.title}>{nombre}</h4>
+          <h3 className={styles.title}>{nombre}</h3>
           <span className={styles.unitPrice}>
             ${precio.toLocaleString('es-AR')} por unidad
           </span>

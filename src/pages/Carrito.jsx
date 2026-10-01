@@ -70,8 +70,8 @@ export default function Carrito({
           </div>
 
           {/* Resumen de orden */}
-          <aside className={styles.summaryPanel}>
-            <h3 className={styles.summaryTitle}>Resumen del Pedido</h3>
+          <aside className={styles.summaryPanel} aria-label="Resumen de compra">
+            <h2 className={styles.summaryTitle}>Resumen del Pedido</h2>
 
             <div className={styles.summaryRow}>
               <span>Subtotal artículos</span>

@@ -6,10 +6,17 @@ import styles from './Layout.module.css';
 export default function Layout({ totalCantidad }) {
   return (
     <div className={styles.layout}>
+      {/* Enlace accesible para saltar navegación en lectores de pantalla y teclado */}
+      <a href="#contenido-principal" className="skip-link">
+        Saltar al contenido principal
+      </a>
+
       <NavBar totalCantidad={totalCantidad} />
-      <main className={styles.main}>
+
+      <main id="contenido-principal" className={styles.main} tabIndex={-1}>
         <Outlet />
       </main>
+
       <Footer />
     </div>
   );
